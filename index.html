@@ -428,131 +428,71 @@
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
-        <div class="row">
+        <div id="project-list" class="row"></div>
+      </div>
+    </section>
 
+    <script>
+      const projectArray = [
+        {
+          title: "MarkedUp",
+          image: "/assets/img/markedup-image.png",
+          shortDescription: "A desktop stock market viewer providing detailed, real-time stock market information for over 20,000 stocks.",
+          longDescription: "MarkedUp is a desktop stock viewer that utilizes the TwelveData REST API as the data source and the PyQt5 library with the Qt framework for the GUI. It provides all relevant information for over 20,000 stocks with a clean, easy to use user interface.",
+          tools: "Python, TwelveData REST API, PyQt5, Pandas, Plotly",
+          githubLink: "https://github.com/ridvikpal/MarkedUp"
+        },
+        {
+          title: "CarCartAPI",
+          image: "/assets/img/carcartapi-image.png",
+          shortDescription: "A RESTful API that aggregates and manages used car data via a MySQL database and the OpenAPI ChatGPT 3.5 AI model.",
+          longDescription: "CarCartAPI is a RESTful API that aggregates and manages used car data and information about these cars via a MySQL database and the OpenAPI ChatGPT 3.5 AI model. It is built using Java, Spring Boot, Maven, MySQL and of course OpenAI's own RESTful API for ChatGPT.",
+          tools: "Java, Spring Boot, MySQL, OpenAI ChatGPT-3.5",
+          githubLink: "https://github.com/ridvikpal/CarCartAPI"
+        },
+        {
+          title: "RainyDay",
+          image: "/assets/img/rainyday-image.png",
+          shortDescription: "A weather app written in pure Java and styled with CSS, utilizing the RESTful WeatherAPI for data.",
+          longDescription: "RainyDay is a weather app written in pure Java and styled with CSS, utilizing the RESTful WeatherAPI for data. It is fully featured, easy to use, and beautifully designed. In addition to a full application, RainyDay also has a console client and API counterpart (RainyDayConsoleClientAPI).",
+          tools: "Java, CSS, JavaFX, REST WeatherAPI",
+          githubLink: "https://github.com/ridvikpal/RainyDay"
+        },
+        {
+          title: "SimplyTrack",
+          image: "/assets/img/simplytrack-image.png",
+          shortDescription: "A simple financial tracker that stores bank transaction data in a MySQL server and is managed via a clean GUI.",
+          longDescription: "SimplyTrack is a simple financial tracker that stores manually entered bank transaction data in a MySQL server and is managed via a clean GUI. Using the graph features, I can track spending and income trends across multiple accounts.",
+          tools: "Python, MySQL, Matplotlib, PySimpleGUI",
+          githubLink: "https://github.com/ridvikpal/SimplyTrack"
+        },
+      ];
+
+
+      const createProjectHTML = ({ title, image, shortDescription, longDescription, tools, githubLink }) => {
+        return `
           <div class="col s12 m6 l4">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
-                <img alt="music streaming app" src="/assets/img/markedup-image.png" style="height: 100%; width: 100%"
-                  class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">MarkedUp<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A desktop stock market viewer providing detailed, real-time stock market information for over 20,000
-                  stocks.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <b>Tools: </b>Python, TwelveData REST API, PyQt5, Pandas, Plotly
-                <p>
-                  MarkedUp is a desktop stock viewer that utilizes the TwelveData REST API as the data source and the
-                  PyQt5 library with the Qt framework for the GUI. It provides all relevant information for over 20,000
-                  stocks with a clean, easy to use user interface.
-                </p>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/ridvikpal/MarkedUp"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="quiz app" src="/assets/img/carcartapi-image.png" style="height: 100%; width: 100%"
-                  class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">CarCartAPI<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A RESTful API that aggregates and manages used car data via a MySQL database and the OpenAPI ChatGPT
-                  3.5 AI model.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <b>Tools: </b>Java, Spring Boot, MySQL, OpenAI ChatGPT-3.5
-                <p>
-                  CarCartAPI is a RESTful API that aggregates and manages used car data and information about these
-                  cars via a MySQL database and the OpenAPI ChatGPT 3.5 AI model. It is built using Java, Spring Boot,
-                  Maven, MySQL and of course OpenAI's own RESTful API for ChatGPT.
-                </p>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/ridvikpal/CarCartAPI"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of web app" src="/assets/img/rainyday-image.png" style="height: 100%; width: 100%"
-                  class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">RainyDay<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A weather app written in pure Java and styled with CSS, utilizing the RESTful WeatherAPI for data.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <b>Tools: </b>Java, CSS, JavaFX, REST WeatherAPI
-                <p>
-                  RainyDay is a weather app written in pure Java and styled with CSS, utilizing the RESTful WeatherAPI
-                  for data. It is fully featured, easy to use, and beautifully designed. In addition to a full
-                  application, RainyDay also has a console client and API counterpart (RainyDayConsoleClientAPI).
-                </p>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/ridvikpal/RainyDay"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of  web app" src="/assets/img/simplytrack-image.png"
+                <img alt="Screenshot of  web app" src="${image}"
                   style="height: 100%; width: 100%" class="activator" />
               </div>
               <div class="card-content">
-                <span class="card-title activator teal-text hoverline">SimplyTrack<i
+                <span class="card-title activator teal-text hoverline">${title}<i
                     class="mdi-navigation-more-vert right"></i></span>
                 <p>
-                  A simple financial tracker that stores bank transaction data in a MySQL server and is managed via a
-                  clean GUI.
+                  ${shortDescription}
                 </p>
               </div>
               <div class="card-reveal">
                 <span class="card-title teal-text"><small>Accomplishments</small><i
                     class="mdi-navigation-close right"></i></span>
-                <b>Tools: </b>Python, MySQL, Matplotlib, PySimpleGUI
+                <b>Tools: </b>${tools}
                 <p>
-                  SimplyTrack is a simple financial tracker that stores manually entered bank transaction data in a
-                  MySQL server and is managed via a clean GUI. Using the graph features, I can track spending and income
-                  trends across multiple accounts.
+                  ${longDescription}
                 </p>
                 <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/ridvikpal/SimplyTrack"
+                  <a aria-label="Visit the GitHub repo for  project" href="${githubLink}"
                     target="_blank" data-position="top" data-tooltip="View Source"
                     class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
                       class="fa fa-github"></i></a>
@@ -560,9 +500,20 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        `
+      }
+
+      const insertProjectsIntoDOM = () => {
+        const projectListDiv = document.getElementById("project-list");
+
+        for (let i = 0; i < projectArray.length; i++) {
+          const projectHTML = createProjectHTML(projectArray[i]);
+          projectListDiv.innerHTML += projectHTML;
+        }
+      }
+
+      insertProjectsIntoDOM();
+    </script>
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
