@@ -1,7 +1,8 @@
 # Personal Portfolio ⚡️ 
 > A clean, beautiful, responsive portfolio template for Software Developers!
 
-> https://ridvikpal.github.io
+> https://ridvikpal.github.io  
+> This repo is a clone of https://github.com/varadbhogayata/varadbhogayata.github.io
 
 ![GitHub stars](https://img.shields.io/github/stars/ridvikpal/ridvikpal.github.io) 
 ![GitHub forks](https://img.shields.io/github/forks/ridvikpal/ridvikpal.github.io)
