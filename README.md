@@ -1,4 +1,4 @@
-# Personal Portfolio ⚡️ 
+# Ridvik Pal's Personal Portfolio ⚡️ 
 
 **https://ridvikpal.github.io**
 
