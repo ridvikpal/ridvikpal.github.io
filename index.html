@@ -429,9 +429,11 @@
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
         <div id="project-list" class="row"></div>
+        <button id="load-more-button">Load More</button>
       </div>
     </section>
 
+    <!-- Script to dynamically insert the projects into the above section -->
     <script>
       const projectArray = [
         {
@@ -503,16 +505,24 @@
         `
       }
 
-      const insertProjectsIntoDOM = () => {
-        const projectListDiv = document.getElementById("project-list");
+      const projectListDiv = document.getElementById("project-list");
+      const loadMoreButton = document.getElementById("load-more-button");
 
-        for (let i = 0; i < projectArray.length; i++) {
-          const projectHTML = createProjectHTML(projectArray[i]);
+      firstProjectHTML = createProjectHTML(projectArray[0]);
+      projectListDiv.innerHTML += firstProjectHTML;
+
+      let numberOfProjectsShown = 1;
+
+      const insertAdditionalProjectsIntoDOM = () => {
+        for (; numberOfProjectsShown < projectArray.length; numberOfProjectsShown++) {
+          const projectHTML = createProjectHTML(projectArray[numberOfProjectsShown]);
           projectListDiv.innerHTML += projectHTML;
         }
+
+        loadMoreButton.disabled = true
       }
 
-      insertProjectsIntoDOM();
+      loadMoreButton.addEventListener("click", insertAdditionalProjectsIntoDOM);
     </script>
 
     <!-- Fifth Section: Skills -->
